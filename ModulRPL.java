@@ -12,8 +12,8 @@ public class ModulRPL {
         double[] nilaiPenguji2 = new double[jumlahKomponen];
         double[] nilaiPembimbing = new double[jumlahKomponen];
 
-        for(int i = 1;i<=jumlahKomponen;i++){
-            System.out.printf("Masukkan komponen penilaian %d \n",i);
+        for(int i = 0;i<jumlahKomponen;i++){
+            System.out.printf("Masukkan komponen penilaian %d \n",i+1);
             komponenPenilaian[i] = sc.next();
         }
                 System.out.printf("Masukkan bobot penilaian dosen penguji \n");
@@ -28,12 +28,12 @@ public class ModulRPL {
         Double nilaiAkhirPenguji1 = (double) 0;
         Double nilaiAkhirPenguji2 = (double) 0;
 
-        for(int i = 1;i<=jumlahKomponen;i++){
-            System.out.printf("Masukkan nilai komponen penilaian %s untuk dosen pembimbing",komponenPenilaian[i]);
+        for(int i = 0;i<jumlahKomponen;i++){
+            System.out.printf("Masukkan nilai komponen penilaian %s untuk dosen pembimbing \n",komponenPenilaian[i]);
             nilaiPembimbing[i] = sc.nextDouble();
-            System.out.printf("Masukkan nilai komponen penilaian %s untuk dosen penguji 1",komponenPenilaian[i]);
+            System.out.printf("Masukkan nilai komponen penilaian %s untuk dosen penguji 1 \n",komponenPenilaian[i]);
             nilaiPenguji1[i] = sc.nextDouble();
-            System.out.printf("Masukkan nilai komponen penilaian %s untuk dosen penguji 2",komponenPenilaian[i]);
+            System.out.printf("Masukkan nilai komponen penilaian %s untuk dosen penguji 2 \n",komponenPenilaian[i]);
             nilaiPenguji2[i] = sc.nextDouble();
             nilaiAkhirPembimbing+=nilaiPembimbing[i];
             nilaiAkhirPenguji1+=nilaiPenguji1[i];
@@ -43,9 +43,12 @@ public class ModulRPL {
         nilaiAkhirPenguji1 = nilaiAkhirPenguji1/jumlahKomponen;
         nilaiAkhirPenguji2 = nilaiAkhirPenguji2/jumlahKomponen;
 
-        nilaiAkhirPembimbing = nilaiAkhirPembimbing/bobotPenilaianDosbing;
-        nilaiAkhirPenguji1 = nilaiAkhirPembimbing/bobotPenilaianDosenPenguji;
-        nilaiAkhirPenguji2 = nilaiAkhirPenguji2/bobotPenilaianDosenPenguji;
+        nilaiAkhirPembimbing = nilaiAkhirPembimbing*(bobotPenilaianDosbing/100);
+        System.out.println(nilaiAkhirPembimbing);
+        nilaiAkhirPenguji1 = nilaiAkhirPenguji1*(bobotPenilaianDosenPenguji/100);
+        System.out.println(nilaiAkhirPenguji1);
+        nilaiAkhirPenguji2 = nilaiAkhirPenguji2*(bobotPenilaianDosenPenguji/100);
+        System.out.println(nilaiAkhirPenguji2);
 
         System.out.println("Nilai Akhir Skripsi Mahasiswa: ");
         Double nilaiAkhirMahasiswa = nilaiAkhirPembimbing + nilaiAkhirPenguji1 + nilaiAkhirPenguji2;
