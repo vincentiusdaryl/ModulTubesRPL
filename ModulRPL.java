@@ -15,15 +15,15 @@ public class ModulRPL {
         double[] nilaiPenguji2 = new double[jumlahKomponen];
         double[] nilaiPembimbing = new double[jumlahKomponen];
 
-        for(int i = 0;i<jumlahKomponen;i++){
+        for(int i = 0; i < jumlahKomponen; i++){
             System.out.printf("Masukkan komponen penilaian %d \n",i+1);
             komponenPenilaian[i] = sc.next();
         }
 
-        System.out.printf("Masukkan bobot penilaian dosen penguji \n");
+        System.out.println("Masukkan bobot penilaian dosen pembimbing");
         double bobotPenilaianDosbing = sc.nextDouble();
 
-        System.out.println("Masukkan bobot penilaian dosen pembimbing");
+        System.out.printf("Masukkan bobot penilaian dosen penguji \n");
         double bobotPenilaianDosenPenguji = sc.nextDouble();
         
 
@@ -31,7 +31,7 @@ public class ModulRPL {
         Double nilaiAkhirPenguji1 = (double) 0;
         Double nilaiAkhirPenguji2 = (double) 0;
 
-        for(int i = 0;i<jumlahKomponen;i++){
+        for(int i = 0; i < jumlahKomponen; i++){
             System.out.printf("Masukkan nilai komponen penilaian %s untuk dosen pembimbing \n",komponenPenilaian[i]);
             nilaiPembimbing[i] = sc.nextDouble();
 
@@ -46,9 +46,9 @@ public class ModulRPL {
             nilaiAkhirPenguji2 += nilaiPenguji2[i];
         }
 
-        nilaiAkhirPembimbing = nilaiAkhirPembimbing/jumlahKomponen;
-        nilaiAkhirPenguji1 = nilaiAkhirPenguji1/jumlahKomponen;
-        nilaiAkhirPenguji2 = nilaiAkhirPenguji2/jumlahKomponen;
+        nilaiAkhirPembimbing = nilaiAkhirPembimbing / jumlahKomponen;
+        nilaiAkhirPenguji1 = nilaiAkhirPenguji1 / jumlahKomponen;
+        nilaiAkhirPenguji2 = nilaiAkhirPenguji2 / jumlahKomponen;
         
         // Bagian ini KAYAKNYA ga perlu di print, biar by sistem aja jadi user gaperlu tau setiap dosen pembimbing sm penguji
         // masing" berapa soalnya udh diitung sm program
@@ -86,7 +86,7 @@ public class ModulRPL {
             hasilAkhirMahasiswa = "A";
         } 
 
-        System.out.println("Nilai Akhir Sidang Skripsi Mahasiswa: " + nilaiAkhirMahasiswa);
+        System.out.printf("Nilai Akhir Sidang Skripsi Mahasiswa: %5.2f \n" , nilaiAkhirMahasiswa);
         System.out.println("Hasil Akhir Sidang Skripsi Mahasiswa: " + hasilAkhirMahasiswa);
     }
 }
