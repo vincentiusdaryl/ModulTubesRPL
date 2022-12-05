@@ -92,21 +92,21 @@ public class ModulRPL {
         // A atau A- atau B+ atau B atau B- atau C+ atau C atau D atau E
         Double nilaiAkhirMahasiswa = nilaiAkhirPembimbing + nilaiAkhirPenguji1 + nilaiAkhirPenguji2;
         String hasilAkhirMahasiswa = "";
-        if (nilaiAkhirMahasiswa < 50) {
+        if (nilaiAkhirMahasiswa < 50.00) {
             hasilAkhirMahasiswa = "E";
-        } else if (nilaiAkhirMahasiswa >= 50 && nilaiAkhirMahasiswa <= 59) {
+        } else if (nilaiAkhirMahasiswa >= 50.00 && nilaiAkhirMahasiswa <= 59.00) {
             hasilAkhirMahasiswa = "D";
-        } else if (nilaiAkhirMahasiswa >= 60 && nilaiAkhirMahasiswa <= 62) {
+        } else if (nilaiAkhirMahasiswa >= 60.00 && nilaiAkhirMahasiswa <= 62.00) {
             hasilAkhirMahasiswa = "C";
-        } else if (nilaiAkhirMahasiswa >= 63 && nilaiAkhirMahasiswa <= 66) {
+        } else if (nilaiAkhirMahasiswa >= 63.00 && nilaiAkhirMahasiswa <= 66.00) {
             hasilAkhirMahasiswa = "C+";
-        } else if (nilaiAkhirMahasiswa >= 67 && nilaiAkhirMahasiswa <= 69) {
+        } else if (nilaiAkhirMahasiswa >= 67.00 && nilaiAkhirMahasiswa <= 69.00) {
             hasilAkhirMahasiswa = "B-";
-        } else if (nilaiAkhirMahasiswa >= 70 && nilaiAkhirMahasiswa <= 72) {
+        } else if (nilaiAkhirMahasiswa >= 70.00 && nilaiAkhirMahasiswa <= 72.00) {
             hasilAkhirMahasiswa = "B";
-        } else if (nilaiAkhirMahasiswa >= 73 && nilaiAkhirMahasiswa <= 76) {
+        } else if (nilaiAkhirMahasiswa >= 73.00 && nilaiAkhirMahasiswa <= 76.00) {
             hasilAkhirMahasiswa = "B+";
-        } else if (nilaiAkhirMahasiswa >= 77 && nilaiAkhirMahasiswa <= 79) {
+        } else if (nilaiAkhirMahasiswa >= 77.00 && nilaiAkhirMahasiswa <= 79.00) {
             hasilAkhirMahasiswa = "A-";
         } else {
             hasilAkhirMahasiswa = "A";
