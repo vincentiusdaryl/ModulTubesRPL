@@ -50,15 +50,19 @@ public class Modul_B_1_5 {
                 System.out.println("Nilai yang anda masukkan kurang dari 100%, silakan masukkan ulang");
                 System.out.println("Masukkan bobot penilaian dosen pembimbing");
                 bobotPenilaianDosbing = sc.nextDouble();
+
                 System.out.println("Masukkan bobot penilaian dosen penguji");
                 bobotPenilaianDosenPenguji = sc.nextDouble();
+                
                 totalBobot = bobotPenilaianDosbing + (2 * bobotPenilaianDosenPenguji);
             } else if (totalBobot > 100) {
                 System.out.println("Nilai yang anda masukkan lebih dari 100%, silakan masukkan ulang");
                 System.out.println("Masukkan bobot penilaian dosen pembimbing");
                 bobotPenilaianDosbing = sc.nextDouble();
+
                 System.out.println("Masukkan bobot penilaian dosen penguji");
                 bobotPenilaianDosenPenguji = sc.nextDouble();
+
                 totalBobot = bobotPenilaianDosbing + (2 * bobotPenilaianDosenPenguji);
             }
         }
@@ -85,20 +89,29 @@ public class Modul_B_1_5 {
             nilaiAkhirPenguji2 += nilaiPenguji2[i];
         }
 
-        // Sesudah dijumlahkan maka akan dihitung rata-ratanya
-        nilaiAkhirPembimbing = nilaiAkhirPembimbing / jumlahKomponen;
-        nilaiAkhirPenguji1 = nilaiAkhirPenguji1 / jumlahKomponen;
-        nilaiAkhirPenguji2 = nilaiAkhirPenguji2 / jumlahKomponen;
-        
-        // Sesudah didapatkan rata-ratanya kemudian akan dibagi sesuai dengan bobot yang telah ditentukan diawal
-        nilaiAkhirPembimbing = nilaiAkhirPembimbing * (bobotPenilaianDosbing/100);
-        nilaiAkhirPenguji1 = nilaiAkhirPenguji1 * (bobotPenilaianDosenPenguji/100);
-        nilaiAkhirPenguji2 = nilaiAkhirPenguji2 * (bobotPenilaianDosenPenguji/100);
+        nilaiAkhirPembimbing = nilaiAkhir(nilaiAkhirPembimbing, jumlahKomponen, bobotPenilaianDosbing);
+        nilaiAkhirPenguji1 = nilaiAkhir(nilaiAkhirPenguji1, jumlahKomponen, bobotPenilaianDosenPenguji);
+        nilaiAkhirPenguji2 = nilaiAkhir(nilaiAkhirPenguji2, jumlahKomponen, bobotPenilaianDosenPenguji);
 
         // Sesudah didapatkan nilai akhir yang didapetkan mahasiswa kemudian akan ditentukan, apakah mahasiswa tersebut mendapatkan nilai
         // A atau A- atau B+ atau B atau B- atau C+ atau C atau D atau E
         Double nilaiAkhirMahasiswa = nilaiAkhirPembimbing + nilaiAkhirPenguji1 + nilaiAkhirPenguji2;
+        nilaiAkhirMahasiswa = (double) Math.round(nilaiAkhirMahasiswa);
+        String hasilAkhirMahasiswa = hasilAkhir(nilaiAkhirMahasiswa);
+
+        // Program akan mengeluarkan nilai akhir (yang sudah dihitung) yang didapatkan oleh mahasiswa beserta dengan hasil akhirnya
+        System.out.printf("Nilai Akhir Sidang Skripsi Mahasiswa: %1.0f \n" , nilaiAkhirMahasiswa);
+        System.out.println("Hasil Akhir Sidang Skripsi Mahasiswa: " + hasilAkhirMahasiswa);
+    }
+
+    private static Double nilaiAkhir (Double nilai, int jumlahKomponen, Double bobotPenilaian) {
+        return (nilai / jumlahKomponen) * (bobotPenilaian / 100);
+    }
+
+    private static String hasilAkhir (Double nilaiAkhirMahasiswa) {
+
         String hasilAkhirMahasiswa = "";
+
         if (nilaiAkhirMahasiswa < 50.00) {
             hasilAkhirMahasiswa = "E";
         } else if (nilaiAkhirMahasiswa >= 50.00 && nilaiAkhirMahasiswa <= 59.00) {
@@ -119,8 +132,6 @@ public class Modul_B_1_5 {
             hasilAkhirMahasiswa = "A";
         } 
 
-        // Program akan mengeluarkan nilai akhir (yang sudah dihitung) yang didapatkan oleh mahasiswa beserta dengan hasil akhirnya
-        System.out.printf("Nilai Akhir Sidang Skripsi Mahasiswa: %5.2f \n" , nilaiAkhirMahasiswa);
-        System.out.println("Hasil Akhir Sidang Skripsi Mahasiswa: " + hasilAkhirMahasiswa);
+        return hasilAkhirMahasiswa;
     }
 }
